@@ -34,7 +34,7 @@ function generate(schema, data) {
             }
             str = str.replace(part, encode(val))
         })
-    return error ? "" : str
+    return error ? "" : `<script type="application/ld+json">${str}</script>`
 }
 
 function article(data = {
