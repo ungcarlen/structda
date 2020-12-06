@@ -40,6 +40,7 @@ console.log(output);
 This logs out the following. By default it is compressed, as a **string**. Here manually formatted to illustrate the returned structure.
 
 ```
+<script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -51,6 +52,7 @@ This logs out the following. By default it is compressed, as a **string**. Here 
     "datePublished": "2015-02-05T08:00:00+08:00",
     "dateModified": "2015-02-05T08:00:00+08:00"
 }
+</script>
 ```
 
 Running the example above, we can see what the output of the article function is. Valid structured data in **application/ld+json** format. You input a object of data, and if your data is valid for the given structured data type, you receive valid schema in return.
@@ -92,6 +94,7 @@ console.log(output);
 This logs out the following. By default it is compressed, as a **string**. Here manually formatted to illustrate the returned structure.
 
 ```
+<script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -103,6 +106,7 @@ This logs out the following. By default it is compressed, as a **string**. Here 
     "datePublished": "2015-02-05T08:00:00+08:00",
     "dateModified": "2015-02-05T08:00:00+08:00"
 }
+</script>
 ```
 
 ## Structured data types
@@ -169,6 +173,7 @@ console.log(output);
 This logs out the following. By default it is compressed, as a **string**. Here manually formatted to illustrate the returned structure.
 
 ```
+<script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -180,4 +185,5 @@ This logs out the following. By default it is compressed, as a **string**. Here 
     "datePublished": "2015-02-05T08:00:00+08:00",
     "dateModified": "2015-02-05T08:00:00+08:00"
 }
+</script>
 ```
