@@ -1,5 +1,7 @@
 # Structda
 
+> Structured data in application/ld+json format for use in Search Engine Optimisation (SEO) purpose.
+
 ## Introduction
 
 **structda** is a work in progress. The goal is to unify the inclusion of structured data in any [NodeJS](https://nodejs.org/en/) based project, structured according to [Google's Guidelines](https://developers.google.com/search/docs/guides/intro-structured-data). Simple functions to generate valid structured data.
