@@ -123,7 +123,7 @@ This logs out the following. By default it is compressed, as a **string**. Here 
 - [ ] Estimated salary
 - [ ] Event
 - [ ] Fact Check
-- [ ] FAQ
+- [x] [FAQ](#faq)
 - [ ] Home Activities
 - [ ] How-to
 - [ ] Image License
@@ -184,6 +184,60 @@ This logs out the following. By default it is compressed, as a **string**. Here 
     ],
     "datePublished": "2015-02-05T08:00:00+08:00",
     "dateModified": "2015-02-05T08:00:00+08:00"
+}
+</script>
+```
+
+### <a name="faq"></a> FAQ / Frequently Asked Questions
+
+A FAQ may contain one or several frequently asked questions. One web page can contain several script elements with FAQ's. For SEO there is little purpose to try to fit all FAQ's in one call of this function. The only problem is that multiple calls to this function leads to more bytes being sent to the users client when requesting the web page. 
+
+According to [Google's Guidelines for FAQPages](https://developers.google.com/search/docs/data-types/faqpage) there is no AMP-version of FAQ's. Only use FAQ structured data type if it is the web site creator that answers the frequently asked questions. **If your questions and answers are user generated, a Q&A is more appropriate.**
+
+The required parameters for a FAQ is an array of objects that contain
+- question: string
+- answer: string
+
+The question(s) must be passed into the function as an array.
+
+```
+const structda = require("structda");
+
+let input = [{
+        question: "Example Question", 
+        answer: "Example Answer"
+    }, {
+        question: "Example Question 2", 
+        answer: "Example Answer 2"
+    }];
+
+let output = structda.FAQ(input);
+
+console.log(output);
+```
+
+This logs out the following. By default it is compressed, as a **string**. Here manually formatted to illustrate the returned structure.
+
+```
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+        "@type": "Question",
+        "name": "Example Question",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example Answer"
+        }
+    }, {
+        "@type": "Question",
+        "name": "Example Question 2",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Example Answer 2"
+        }
+    }]
 }
 </script>
 ```
