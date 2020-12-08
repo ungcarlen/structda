@@ -115,7 +115,7 @@ This logs out the following. By default it is compressed, as a **string**. Here 
 
 - [x] [Article](#article)
 - [ ] Book
-- [ ] Breadcrumb
+- [x] [Breadcrumb](#breadcrumb)
 - [ ] Carousel
 - [ ] Course
 - [ ] COVID-19 announcements
@@ -189,6 +189,57 @@ This logs out the following. By default it is compressed, as a **string**. Here 
 }
 </script>
 ```
+
+### <a name="breadcrumb"></a> Breadcrumb
+A Breadcrumb is simply a list of urls, showing where in the web sites hierarchy a specific web page is positioned. Allowing users to directly go to a parent page enhances the search experience according to [Google's Guidelines for Breadcrumb](https://developers.google.com/search/docs/data-types/breadcrumb).
+
+It is the order in which the objects are given that determine their position. You cannot pass in your own positions. 
+
+The required parameters for a Breadcrumb is an array of objects that contain
+- name: string
+- url: string (ideally the canonical url)
+
+```
+const structda = require("structda");
+
+let input = [
+    {
+        name: "Home",
+        url: "https://www.example.com/"
+    },
+    {
+        name: "About",
+        url: "https://www.example.com/about"
+    }
+];
+
+let output = structda.breadcrumb(input);
+
+console.log(output);
+```
+
+This logs out the following. By default it is compressed, as a **string**. Here manually formatted to illustrate the returned structure.
+
+```
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.example.com/"
+    }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://www.example.com/about"
+    }]
+}
+</script>
+```
+
 
 ### <a name="faq"></a> FAQ / Frequently Asked Questions
 

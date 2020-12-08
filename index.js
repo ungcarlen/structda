@@ -7,6 +7,16 @@ const schemas = {
         "datePublished": "{{datePublished}}",
         "dateModified": "{{dateModified}}"
     },
+    "breadcrumb": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": "{{n}}",
+            "name": "{{name}}",
+            "item": "{{url}}"
+        }]
+    },
     "FAQ": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -30,13 +40,15 @@ function encode(x) {
     if (typeof x.getMonth === 'function') {
         x = x.toISOString()
     }
+    if (typeof x !== "string") {
+        return x
+    }
     return x.replace(/\"/gm, "'")
 }
 
-function repl(str, part, param, val) {
-    if (!val) {
-        error = true
-        return console.error(`Missing "${param}" for ${type}, only received ${JSON.stringify(data)}`)
+function repl(str, part, val) {
+    if (part === "{{n}}") {
+        part = `"{{n}}"`
     }
     return str.replace(part, encode(val))
 }
@@ -57,14 +69,22 @@ function generate(type, data, array = null) {
                 data.forEach(item => {
                     let param = part.replace(/\{/gm, "").replace(/\}/gm, "")
                     let val = item[param]
-                    str = repl(str, part, param, val)
+                    if (!val) {
+                        error = true
+                        return console.error(`Missing "${param}" for ${type}, only received ${JSON.stringify(data)}`)
+                    }
+                    str = repl(str, part, val)
                 })
                 return
             }
-            
+
             let param = part.replace(/\{/gm, "").replace(/\}/gm, "")
             let val = data[param]
-            str = repl(str, part, param, val)
+            if (!val) {
+                error = true
+                return console.error(`Missing "${param}" for ${type}, only received ${JSON.stringify(data)}`)
+            }
+            str = repl(str, part, val)
         })
     return error ? "" : `<script type="application/ld+json">${str}</script>`
 }
@@ -78,6 +98,16 @@ function article(data = {
     return generate("article", data)
 }
 
+function breadcrumb(data = [{
+    name,
+    url
+}]) {
+    for (let i = 0; i < data.length; i++) {
+        data[i].n = i + 1
+    }
+    return generate("breadcrumb", data, "itemListElement")
+}
+
 function FAQ(data = [{
     question,
     answer
@@ -87,5 +117,6 @@ function FAQ(data = [{
 
 module.exports = {
     article,
+    breadcrumb,
     FAQ
 }
