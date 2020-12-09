@@ -197,7 +197,7 @@ It is the order in which the objects are given that determine their position. Yo
 
 The required parameters for a Breadcrumb is an array of objects that contain
 - name: string
-- url: string (ideally the canonical url)
+- url: string (ideally the canonical url), this can be omitted for the last entry
 
 ```
 const structda = require("structda");
@@ -208,8 +208,7 @@ let input = [
         url: "https://www.example.com/"
     },
     {
-        name: "About",
-        url: "https://www.example.com/about"
+        name: "About"
     }
 ];
 
@@ -233,8 +232,7 @@ This logs out the following. By default it is compressed, as a **string**. Here 
     }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "About",
-        "item": "https://www.example.com/about"
+        "name": "About"
     }]
 }
 </script>
