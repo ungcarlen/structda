@@ -69,11 +69,19 @@ Using this project, you will **hopefully** be guaranteed to have valid structure
 
 First of, you should install the package in your local project.
 
+Using [NPM](https://www.npmjs.com/package/structda)
+
 ```
 npm install structda
 ```
 
-Then in your file, require structda and call any function. Let's again have a look at an article.
+or if you prefer [Yarn](https://yarnpkg.com/package/structda)
+
+```
+yarn add structda
+```
+
+Then in your file, import structda and call any function. Let's again have a look at an article.
 
 ```
 const structda = require("structda");
