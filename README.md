@@ -1,6 +1,8 @@
-# Structda
+# Structda [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ungcarlen/structda/LICENSE) [![npm version](https://img.shields.io/npm/v/structda.svg?style=flat)](https://www.npmjs.com/package/structda) [![Known Vulnerabilities](https://snyk.io/test/npm/structda/latest/badge.svg)](https://snyk.io/test/npm/structda/latest)
 
-> Structured data in application/ld+json format for use in Search Engine Optimisation (SEO) purpose.
+Structured data in application/ld+json format for use in Search Engine Optimisation (SEO) purpose.
+- **Dependency free**: no need for external dependencies
+- **Internal error handling**: no need to check the returned value for inconsistencies. Check the console for potential errors, not your web page. Data with errors returns an empty string.
 
 ## Introduction
 
