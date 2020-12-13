@@ -1,12 +1,16 @@
 {
   "name": "structda",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Structured data in application/ld+json-format",
   "main": "index.js",
   "scripts": {
     "test": "node tests.js"
   },
-  "keywords": ["SEO", "structured data", "application/ld+json"],
+  "keywords": [
+    "SEO",
+    "structured data",
+    "application/ld+json"
+  ],
   "author": "ungcarlen",
   "license": "MIT",
   "repository": {
