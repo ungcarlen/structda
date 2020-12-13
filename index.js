@@ -28,6 +28,12 @@ const schemas = {
                 "text": "{{answer}}"
             }
         }]
+    },
+    "logo": {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "{{url}}",
+        "logo": "{{logo_url}}"
     }
 }
 
@@ -169,8 +175,16 @@ function FAQ(data = [{
     return generate("FAQ", data)
 }
 
+function logo(data = {
+    url,
+    logo_url
+}) {
+    return generate("logo", data)
+}
+
 module.exports = {
     article,
     breadcrumb,
-    FAQ
+    FAQ,
+    logo
 }

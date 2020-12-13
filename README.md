@@ -142,7 +142,7 @@ This logs out the following. By default it is compressed, as a **string**. Here 
 - [ ] Job Posting
 - [ ] Job Training
 - [ ] Local Business
-- [ ] Logo
+- [x] [Logo](#logo)
 - [ ] Movie
 - [ ] Product
 - [ ] Q&A
@@ -299,6 +299,40 @@ This logs out the following. By default it is compressed, as a **string**. Here 
             "text": "Example Answer 2"
         }
     }]
+}
+</script>
+```
+
+### <a name="logo"></a> Logo
+
+A Logo is a very simple structured data type. According to [Google's Guidelines for Logos](https://developers.google.com/search/docs/data-types/logo) there is no AMP-version of Logo.
+
+The required parameters for a Logo is
+- url: string
+- logo_url: string
+
+```
+const structda = require("structda");
+
+let input = {
+        url: "https://www.example.com",
+        logo_url: "https://www.example.com/assets/logo.png"
+    }
+
+let output = structda.logo(input);
+
+console.log(output);
+```
+
+This logs out the following. By default it is compressed, as a **string**. Here manually formatted to illustrate the returned structure.
+
+```
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "url": "https://www.example.com",
+    "logo": "https://www.example.com/assets/logo.png"
 }
 </script>
 ```
