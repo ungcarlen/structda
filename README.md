@@ -11,7 +11,7 @@ Structured data in application/ld+json format for use in Search Engine Optimisat
 
 If the input data isn't valid, **structda** outputs error messages in the console but return an empty string as a value. Why? We always want the web page to have valid markup. If the structured data isn't valid, it shouldn't exist on the web page. Debugging should always be done in a controlled environment, i.e. not visible on the world wide web. 
 
-Valid input is returned as a string structured as **application/ld+json**. It's only the actual string that is returned, i.e. you need to place this in a script element on your web page.
+Valid input is returned as a string structured as **application/ld+json**. 
 
 The fundamental idea when developing this project is that it should be **completely dependency free** and that **all error handling should be internal**. No invalid structured data should be returned when any function is called.
 
