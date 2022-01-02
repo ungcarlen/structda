@@ -143,7 +143,7 @@ function generate(type, data, notLast = []) {
 
     // return an empty string if any errors
     // otherwise, return the full structure
-    return error ? "" : `<script type="application/ld+json">${str}</script>`
+    return error ? "" : str
 }
 
 function article(data = {

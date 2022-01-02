@@ -15,7 +15,7 @@ test('article', {
     datePublished: "2015-02-05T08:00:00+08:00",
     dateModified: "2015-02-05T08:00:00+08:00"
 },
-    `<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Article headline","image":["article-image-1.png","article-image-2.png"],"datePublished":"2015-02-05T08:00:00+08:00","dateModified":"2015-02-05T08:00:00+08:00"}</script>`
+    `{"@context":"https://schema.org","@type":"NewsArticle","headline":"Article headline","image":["article-image-1.png","article-image-2.png"],"datePublished":"2015-02-05T08:00:00+08:00","dateModified":"2015-02-05T08:00:00+08:00"}`
 )
 
 test('breadcrumb',
@@ -28,7 +28,7 @@ test('breadcrumb',
         url: "https://www.example.com/about"
     }
     ],
-    `<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.example.com/"},{"@type":"ListItem","position":2,"name":"About"}]}</script>`
+    `{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.example.com/"},{"@type":"ListItem","position":2,"name":"About"}]}`
 )
 
 test('FAQ',
@@ -41,7 +41,7 @@ test('FAQ',
         answer: "Example Answer 2"
     }
     ],
-    `<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Example Question","acceptedAnswer":{"@type":"Answer","text":"Example Answer"}},{"@type":"Question","name":"Example Question 2","acceptedAnswer":{"@type":"Answer","text":"Example Answer 2"}}]}</script>`
+    `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Example Question","acceptedAnswer":{"@type":"Answer","text":"Example Answer"}},{"@type":"Question","name":"Example Question 2","acceptedAnswer":{"@type":"Answer","text":"Example Answer 2"}}]}`
 )
 
 test('logo',
@@ -49,5 +49,5 @@ test('logo',
         url: "https://www.example.com",
         logo_url: "https://www.example.com/assets/logo.png"
     },
-    `<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","url":"https://www.example.com","logo":"https://www.example.com/assets/logo.png"}</script>`
+    `{"@context":"https://schema.org","@type":"Organization","url":"https://www.example.com","logo":"https://www.example.com/assets/logo.png"}`
 )
